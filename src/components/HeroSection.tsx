@@ -56,7 +56,7 @@ export const HeroSection: React.FC = () => {
       {/* Foreground Content Layer */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Top Navigation Bar */}
-        <header className="min-h-20 bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 px-6 md:px-8 lg:px-12 py-4 flex items-center justify-between shadow-lg shadow-blue-950/10">
+        <header className="min-h-20 px-6 md:px-12 lg:px-16 py-5 md:py-6 flex items-center justify-between">
           {/* Left: Brand Wordmark & Desktop Links */}
           <div className="flex items-center gap-10 lg:gap-12">
             <a
