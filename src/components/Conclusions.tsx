@@ -35,7 +35,7 @@ export function Conclusions() {
   const conclusionVideo = new URL('../../videos/Conclusion.mp4', import.meta.url).href;
 
   return (
-    <section className="conclusions-section" aria-labelledby="conclusions-title">
+    <section id="conclusiones" className="conclusions-section scroll-mt-6" aria-labelledby="conclusions-title">
       <div className="conclusions-wrap">
         <p className="conclusions-kicker"><strong>07</strong><span>Síntesis de impacto esperado · AgroVision Perú S.A.C.</span></p>
         <h2 id="conclusions-title">Conclusiones y Cierre</h2>

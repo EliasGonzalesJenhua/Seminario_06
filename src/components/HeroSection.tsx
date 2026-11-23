@@ -5,19 +5,13 @@ import { AgencyDrawers, StudioPanel } from './AgencyDrawers';
 const HERO_VIDEO_URL =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260622_204103_f607742e-09da-4cf5-bb06-4e67b0a531de.mp4';
 
-const DESKTOP_NAV_ITEMS: { label: string; panel: Exclude<StudioPanel, null> }[] = [
-  { label: 'Projects', panel: 'projects' },
-  { label: 'Expertise', panel: 'expertise' },
-  { label: 'Studio', panel: 'studio' },
-  { label: 'Insights', panel: 'insights' },
-];
-
-const MOBILE_NAV_ITEMS: { label: string; panel: Exclude<StudioPanel, null> }[] = [
-  { label: 'Projects', panel: 'projects' },
-  { label: 'Expertise', panel: 'expertise' },
-  { label: 'Studio', panel: 'studio' },
-  { label: 'Insights', panel: 'insights' },
-  { label: 'Reach Out', panel: 'contact' },
+const NAV_ITEMS = [
+  { label: 'Contexto', target: 'contexto' },
+  { label: 'ITEM 1', target: 'item-1' },
+  { label: 'ITEM 2', target: 'item-2' },
+  { label: 'ITEM 3', target: 'item-3' },
+  { label: 'ITEM 4', target: 'item-4' },
+  { label: 'Conclusiones', target: 'conclusiones' },
 ];
 
 export const HeroSection: React.FC = () => {
@@ -62,30 +56,22 @@ export const HeroSection: React.FC = () => {
       {/* Foreground Content Layer */}
       <div className="relative z-10 flex flex-col h-full">
         {/* Top Navigation Bar */}
-        <header className="px-6 md:px-12 lg:px-16 py-5 md:py-6 flex items-center justify-between">
+        <header className="min-h-20 bg-gradient-to-r from-blue-800 via-blue-700 to-blue-600 px-6 md:px-8 lg:px-12 py-4 flex items-center justify-between shadow-lg shadow-blue-950/10">
           {/* Left: Brand Wordmark & Desktop Links */}
           <div className="flex items-center gap-10 lg:gap-12">
             <a
               href="#top"
-              onClick={(e) => {
-                e.preventDefault();
-                setActivePanel(null);
-                setIsMenuOpen(false);
-              }}
+              onClick={() => setIsMenuOpen(false)}
               className="text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)] font-semibold text-lg tracking-tight font-sans whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-sm"
             >
-              Atelier
+              AGROEYE-DL
             </a>
 
-            <nav aria-label="Primary navigation" className="hidden md:flex items-center gap-7 lg:gap-8">
-              {DESKTOP_NAV_ITEMS.map((item) => (
+            <nav aria-label="Navegación principal" className="hidden md:flex items-center gap-5 lg:gap-7">
+              {NAV_ITEMS.map((item) => (
                 <a
-                  key={item.label}
-                  href={`#${item.panel}`}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleOpenPanel(item.panel);
-                  }}
+                  key={item.target}
+                  href={`#${item.target}`}
                   className="text-white/90 hover:text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)] text-sm font-light transition-colors duration-200 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-sm"
                 >
                   {item.label}
@@ -94,25 +80,21 @@ export const HeroSection: React.FC = () => {
             </nav>
           </div>
 
-          {/* Right: Secondary Link, Primary CTA & Mobile Hamburger */}
+          {/* Project actions and mobile navigation toggle */}
           <div className="flex items-center gap-6 shrink-0">
             <a
-              href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleOpenPanel('contact');
-              }}
-              className="hidden md:inline-block text-white/90 hover:text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)] text-sm font-light transition-colors duration-200 whitespace-nowrap shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-sm"
+              href="#contexto"
+              className="hidden lg:inline-block text-white/90 hover:text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.55)] text-sm font-light transition-colors duration-200 whitespace-nowrap focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/60 rounded-sm"
             >
-              Reach Out
+              Explorar proyecto
             </a>
 
             <button
               type="button"
-              onClick={() => handleOpenPanel('contact')}
-              className="hidden md:inline-flex items-center justify-center bg-white text-slate-900 rounded-full px-5 py-2 text-sm font-medium hover:bg-slate-100 transition-colors duration-200 whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
+              onClick={() => setIsReelOpen(true)}
+              className="hidden lg:inline-flex items-center justify-center bg-white text-blue-900 rounded-full px-5 py-2 text-sm font-medium hover:bg-blue-50 transition-colors duration-200 whitespace-nowrap cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
             >
-              Let&apos;s Talk
+              Ver presentación
             </button>
 
             {/* Animated Mobile Hamburger */}
@@ -122,21 +104,21 @@ export const HeroSection: React.FC = () => {
               aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
               aria-expanded={isMenuOpen}
               aria-controls="mobile-nav-overlay"
-              className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-700/60 rounded-md"
+              className="md:hidden w-11 h-11 -mr-2 flex items-center justify-center cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 rounded-md"
             >
               <span className="flex flex-col items-end justify-center gap-[5px]">
                 <span
-                  className={`block w-6 h-[2px] bg-slate-900 rounded-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                  className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                     isMenuOpen ? 'translate-y-[7px] rotate-45' : ''
                   }`}
                 />
                 <span
-                  className={`block w-4 h-[2px] bg-slate-900 rounded-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                  className={`block w-4 h-[2px] bg-white rounded-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                     isMenuOpen ? 'opacity-0' : 'opacity-100'
                   }`}
                 />
                 <span
-                  className={`block w-6 h-[2px] bg-slate-900 rounded-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
+                  className={`block w-6 h-[2px] bg-white rounded-full transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
                     isMenuOpen ? '-translate-y-[7px] -rotate-45' : ''
                   }`}
                 />
@@ -229,7 +211,7 @@ export const HeroSection: React.FC = () => {
               }}
               className="text-slate-900 font-semibold text-lg tracking-tight font-sans"
             >
-              Atelier
+              AGROEYE-DL
             </a>
 
             <button
@@ -245,13 +227,12 @@ export const HeroSection: React.FC = () => {
 
           {/* Staggered Vertical Nav Links */}
           <nav aria-label="Mobile menu links" className="flex-1 flex flex-col justify-center px-6">
-            {MOBILE_NAV_ITEMS.map((item, index) => (
+            {NAV_ITEMS.map((item, index) => (
               <a
-                key={item.label}
-                href={`#${item.panel}`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  handleOpenPanel(item.panel);
+                key={item.target}
+                href={`#${item.target}`}
+                onClick={() => {
+                  setIsMenuOpen(false);
                 }}
                 style={{
                   transitionDelay: isMenuOpen ? `${150 + index * 80}ms` : '0ms',
@@ -265,23 +246,6 @@ export const HeroSection: React.FC = () => {
             ))}
           </nav>
 
-          {/* Overlay Footer CTA */}
-          <div
-            style={{
-              transitionDelay: isMenuOpen ? '550ms' : '0ms',
-            }}
-            className={`px-6 pb-8 pt-4 transition-all duration-500 ease-[cubic-bezier(0.76,0,0.24,1)] ${
-              isMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-            }`}
-          >
-            <button
-              type="button"
-              onClick={() => handleOpenPanel('contact')}
-              className="w-full bg-emerald-700 text-white rounded-full py-4 text-base font-medium hover:bg-emerald-800 transition-colors duration-200 cursor-pointer"
-            >
-              Let&apos;s Talk
-            </button>
-          </div>
         </div>
       </div>
 

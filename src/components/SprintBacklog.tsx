@@ -53,7 +53,7 @@ export function SprintBacklog() {
   const dayCount = period === 'Dos semanas' ? 10 : 5;
 
   return (
-    <section className="sprint-backlog-section" aria-labelledby="sprint-backlog-title">
+    <section id="item-3" className="sprint-backlog-section scroll-mt-6" aria-labelledby="sprint-backlog-title">
       <div className="sprint-backlog-wrap">
         <div className="sprint-backlog-kicker"><strong>ÍTEM 03</strong><span>Entregable obligatorio · Planifico el Sprint Backlog como Developer</span></div>
         <h2 id="sprint-backlog-title">Cómo planifico el Sprint Backlog</h2>

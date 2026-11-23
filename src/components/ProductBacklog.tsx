@@ -53,7 +53,7 @@ export function ProductBacklog() {
   const selectedItem = items.find((item) => item.id === selectedId) ?? items[0];
 
   return (
-    <section className="product-backlog-section" aria-labelledby="backlog-title">
+    <section id="item-2" className="product-backlog-section scroll-mt-6" aria-labelledby="backlog-title">
       <div className="product-backlog-wrap">
         <div className="product-backlog-kicker"><strong>ÍTEM 02</strong><span>Entregable obligatorio · Administrado y priorizado por Jordy Ticona (Product Owner)</span></div>
         <h2 id="backlog-title">Construcción del Product Backlog</h2>

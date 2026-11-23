@@ -136,7 +136,7 @@ export function ScrumTeamItem() {
   }, [isProfileExpanded, isSecondProfileExpanded, isThirdProfileExpanded]);
 
   return (
-    <section className="scrum-item-section" aria-labelledby="scrum-item-title">
+    <section id="item-1" className="scrum-item-section scroll-mt-6" aria-labelledby="scrum-item-title">
       <div className="scrum-item-wrap">
         <div className="scrum-item-meta">
           <span className="scrum-item-number">ÍTEM 01</span>

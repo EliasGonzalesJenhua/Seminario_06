@@ -65,7 +65,7 @@ export function DefinitionOfDone() {
   const toggleEvidence = (index: number) => setExpanded((current) => current.includes(index) ? current.filter((item) => item !== index) : [...current, index]);
 
   return (
-    <section className="dod-section" aria-labelledby="dod-title">
+    <section id="item-4" className="dod-section scroll-mt-6" aria-labelledby="dod-title">
       <div className="dod-wrap">
         <div className="dod-kicker"><strong>ÍTEM 04</strong><span>Entregable obligatorio · Reviso la calidad de mi incremento</span></div>
         <h2 id="dod-title">Cómo defino que terminé (DoD) y entrego valor</h2>
